@@ -1,0 +1,19 @@
+<dbs-page icon="account_balance_wallet" class="dbs-<%= dasherize(name) %>">
+
+  <!-- in case of [customTitle]="true" on dbs-page - otherwise DELETE this -->
+  <div titleContent >
+    <strong>Sample title</strong>
+  </div>
+
+  <div tabs>
+    <mat-tab-group (selectedIndexChange)="toggleHistory($event)" selectedIndex="1">
+      <mat-tab label="{{ 'COMMON.BUTTONS.ACTUAL' | translate }}"></mat-tab>
+      <mat-tab label="{{ 'COMMON.BUTTONS.HISTORY' | translate }}"></mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div body>
+    Dashboard <%= classify(name) %> works!
+  </div>
+
+</dbs-page>

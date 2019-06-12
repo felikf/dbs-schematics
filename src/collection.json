@@ -1,0 +1,25 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "dbs-module": {
+      "description": "A blank schematic.",
+      "factory": "./dbs-module/index#dbsModule",
+      "schema": "./dbs-module/schema.json"
+    },
+    "dbs-service": {
+      "description": "A blank schematic.",
+      "factory": "./dbs-service/index#dbsService",
+      "schema": "./dbs-service/schema.json"
+    },
+    "dbs-error-configuration": {
+      "description": "A blank schematic.",
+      "factory": "./dbs-error-configuration/index#dbsErrorConfiguration",
+      "schema": "./dbs-error-configuration/schema.json"
+    },
+    "dbs-all": {
+      "description": "A blank schematic.",
+      "factory": "./dbs-all/index#dbsAll",
+      "schema": "./dbs-all/schema.json"
+    }
+  }
+}
