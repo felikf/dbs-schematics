@@ -13,7 +13,23 @@
   </div>
 
   <div body>
-    Dashboard <%= classify(name) %> works!
+    <mat-expansion-panel [expanded]="true" [disabled]="true" class="dbs-<%= dasherize(name) %>__info-box">
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxFlex="45">
+            <dbs-data-section [items]="itemsLeft"></dbs-data-section>
+          </div>
+
+          <div fxFlex="45">
+            <dbs-data-section [items]="itemsRight"></dbs-data-section>
+          </div>
+
+          <div fxFlex="10">
+            <dbs-action-links-button [actionLinks]="actionLinks$ | async"></dbs-action-links-button>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
   </div>
 
 </dbs-page>
