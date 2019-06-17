@@ -13,5 +13,5 @@ export class <%= classify(name) %>Service {
 
   get<%= classify(name) %>(): Observable<<%= classify(name) %>Response> {
     return this.backend.getProductData<<%= classify(name) %>Response>(cgpId => `products/${cgpId}/<%= classify(name) %>`);
-}
+  }
 }

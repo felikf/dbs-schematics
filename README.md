@@ -40,11 +40,23 @@ schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-ser
 schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-service views/cards/card-tokens/services/CardTokens CARD_TOKENS --debug=false
 schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
 
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=fals
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
 schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
 schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-module views/cards/CardTokens CARD_TOKENS --debug=false
 
 schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-module views/cards/CardTokens CARD_TOKENS --debug=false
+ 
+ng g ../dbs-schematics/src/collection.json:dbs-all benefits BENEFITS
+
+#### Build and pack
+npm run build
+npm pack
+
+#### Install
+npm i --no-save /f/github/schematics/dbs-schematics/dbs-schematics-0.0.1.tgz
+
+####Use
+ng g @dbs/schematics:dbs-all --path=src/app/views/_loan test TEST
  
 ### Resources
 https://github.com/BottleRocketStudios/ng-momentum/blob/master/src/service/index.ts#L65
