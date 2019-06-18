@@ -29,7 +29,7 @@ export class <%= classify(name) %>Service {
 }
 
   private createReplacements(deepLink: DeepLinkState, appInfo: AppInfoState): Map<string, string> {
-      const menuDefinition = appInfo && appInfo.appInfo && appInfo.appInfo.menuDefinition;
+    const menuDefinition = appInfo && appInfo.appInfo && appInfo.appInfo.menuDefinition;
     const owner = menuDefinition && menuDefinition.owner;
     const userDetail = menuDefinition && menuDefinition.userDetail;
     const branch = userDetail && userDetail.branch;

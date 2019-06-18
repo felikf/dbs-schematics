@@ -56,7 +56,7 @@ npm pack
 npm i --no-save /f/github/schematics/dbs-schematics/dbs-schematics-0.0.1.tgz
 
 ####Use
-ng g @dbs/schematics:dbs-all --path=src/app/views/_loan test TEST
+ng g @dbs/schematics:dbs-all test TEST --path=src/app/views/_pension
  
 ### Resources
 https://github.com/BottleRocketStudios/ng-momentum/blob/master/src/service/index.ts#L65
