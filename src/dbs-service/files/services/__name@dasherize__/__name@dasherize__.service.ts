@@ -16,8 +16,8 @@ export class <%= classify(name) %>Service {
     private readonly backend: BackendService,
     private readonly store: Store<AppState>) {}
 
-  get<%= classify(name) %>(): Observable<<%= classify(name) %>Response> {
-    return this.backend.getProductData<<%= classify(name) %>Response>(cgpId => `products/${cgpId}/<%= classify(name) %>`);
+  get<%= classify(name) %>(): Observable<any> {
+    return this.backend.getProductData<any>(cgpId => `products/${cgpId}/<%= classify(name) %>`);
   }
 
   getActionLinks(actions: Operations): Observable<Operations> {
