@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 
+import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
+
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
 class FakeLoader implements TranslateLoader {
@@ -23,6 +25,13 @@ describe('<%= classify(name) %>Component', () => {
         })
       ],
       providers: [
+        {
+          provide: <%= classify(name) %>Service,
+          useValue: {
+            get<%= classify(name) %>: () => of({}),
+            getActionLinks: () => of([])
+          }
+        }
       ],
       declarations: [<%= classify(name) %>Component],
       schemas: [NO_ERRORS_SCHEMA]

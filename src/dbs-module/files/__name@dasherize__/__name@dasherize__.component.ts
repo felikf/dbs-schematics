@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { Operations } from '@core/model/operation';
 import { DataSectionItem } from '@core/components/data-section/data-section.component';
+import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
 
 @Component({
   selector: 'dbs-<%= dasherize(name) %>',
@@ -15,12 +16,13 @@ export class <%= classify(name) %>Component implements OnInit, OnDestroy {
   itemsLeft: DataSectionItem[];
   itemsRight: DataSectionItem[];
 
-  constructor() {}
+  constructor(private readonly service: <%= classify(name) %>Service) {}
 
   toggleHistory(tabIndex: number): void {
   }
 
   ngOnInit(): void {
+    this.actionLinks$ = this.service.getActionLinks([{ code: 'ACCOUNT_DETAIL', active: true, nonRealizableReason: '' }]);
     this.configureSections({});
   }
 
