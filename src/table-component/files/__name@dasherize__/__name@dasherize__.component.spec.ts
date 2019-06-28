@@ -4,7 +4,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { MatTableModule } from '@angular/material';
 import { Observable, of, throwError } from 'rxjs';
 
-import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
+import { <%= classify(name) %>Service } from '../../services/<%= dasherize(name) %>/<%= dasherize(name) %>.service';
 
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 

@@ -36,7 +36,7 @@
           <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>{{ '<%= actionContext %>.TABLE.NAME' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let row;">
-              {{ row.name '—' }}
+              {{ row.name || '—' }}
             </mat-cell>
           </ng-container>
 
@@ -59,7 +59,7 @@
       </ng-template>
 
       <div *ngIf="!dataSource?.data?.length" fxLayout="row" fxLayoutAlign="center" class="dbs-<%= dasherize(name) %>__no-data">
-        {{ 'PENSION_INSURANCE_AUTHORIZED.NO_DATA' | translate }}
+        {{ '<%= actionContext %>.NO_DATA' | translate }}
       </div>
 
     </dbs-table-cover>

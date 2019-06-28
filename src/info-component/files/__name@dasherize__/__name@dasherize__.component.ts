@@ -4,7 +4,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { Operations } from '@core/model/operation';
 import { DataSectionItem } from '@core/components/data-section/data-section.component';
-import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
+import { <%= classify(name) %>Service } from '../../services/<%= dasherize(name) %>/<%= dasherize(name) %>.service';
 
 @Component({
   selector: 'dbs-<%= dasherize(name) %>',
@@ -13,6 +13,7 @@ import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.
 })
 export class <%= classify(name) %>Component implements OnInit, OnDestroy {
 
+  data: any; // TODO type
   actionLinks$: Observable<Operations>;
   itemsLeft: DataSectionItem[];
   itemsRight: DataSectionItem[];
@@ -26,13 +27,12 @@ export class <%= classify(name) %>Component implements OnInit, OnDestroy {
     this.service.get<%= classify(name) %>()
       .pipe(untilDestroyed(this))
       .subscribe(data => {
-          this.data = data;
-          if (data) {
-            this.actionLinks$ = this.service.getActionLinks(data.actions);
-            this.configureSections(data);
-          }
+        this.data = data;
+        if (data) {
+          this.actionLinks$ = this.service.getActionLinks(data.actions);
+          this.configureSections(data);
         }
-      );
+      });
   }
 
   ngOnDestroy(): void {}
