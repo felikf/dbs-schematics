@@ -5,7 +5,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { Operations } from '@core/model/operation';
 import { DataSectionItem } from '@core/components/data-section/data-section.component';
-import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
+import { <%= classify(name) %>Service } from '../../services/<%= dasherize(name) %>/<%= dasherize(name) %>.service';
 
 @Component({
   selector: 'dbs-<%= dasherize(name) %>',
