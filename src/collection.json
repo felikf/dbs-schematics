@@ -1,25 +1,30 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "dbs-module": {
-      "description": "A blank schematic.",
-      "factory": "./dbs-module/index#dbsModule",
-      "schema": "./dbs-module/schema.json"
+    "module": {
+      "description": "DBS module schematic.",
+      "factory": "./module/index#module",
+      "schema": "./module/schema.json"
     },
-    "dbs-service": {
-      "description": "A blank schematic.",
-      "factory": "./dbs-service/index#dbsService",
-      "schema": "./dbs-service/schema.json"
+    "info-component": {
+      "description": "DBS info component schematic.",
+      "factory": "./info-component/index#infoComponent",
+      "schema": "./info-component/schema.json"
     },
-    "dbs-error-configuration": {
-      "description": "A blank schematic.",
-      "factory": "./dbs-error-configuration/index#dbsErrorConfiguration",
-      "schema": "./dbs-error-configuration/schema.json"
+    "service": {
+      "description": "DBS service schematic.",
+      "factory": "./service/index#service",
+      "schema": "./service/schema.json"
     },
-    "dbs-all": {
-      "description": "A blank schematic.",
-      "factory": "./dbs-all/index#dbsAll",
-      "schema": "./dbs-all/schema.json"
+    "error-configuration": {
+      "description": "DBS error configuration schematic.",
+      "factory": "./error-configuration/index#errorConfiguration",
+      "schema": "./error-configuration/schema.json"
+    },
+    "all": {
+      "description": "DBS complete module with component, service and error configuration schematic.",
+      "factory": "./all/index#all",
+      "schema": "./all/schema.json"
     }
   }
 }

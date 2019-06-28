@@ -6,10 +6,10 @@ import * as path from 'path';
 const collectionPath = path.join(__dirname, '../collection.json');
 
 
-describe('dbs-module', () => {
+describe('info-component', () => {
   it('works', () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = runner.runSchematic('dbs-module', {}, Tree.empty());
+    const tree = runner.runSchematic('info-component', {}, Tree.empty());
 
     expect(tree.files).toEqual([]);
   });

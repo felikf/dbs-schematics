@@ -4,7 +4,7 @@ import { buildDefaultPath, getProject } from '@schematics/angular/utility/projec
 import { parseName } from '@schematics/angular/utility/parse-name';
 import { dasherize } from '@angular-devkit/core/src/utils/strings';
 
-export function dbsAll(_options: any): Rule {
+export function all(_options: any): Rule {
 
   return (tree: Tree) => {
     const workspace = getWorkspace(tree);
@@ -24,9 +24,10 @@ export function dbsAll(_options: any): Rule {
     }
 
     return chain([
-      schematic('dbs-module', _options),
-      schematic('dbs-service', nestedOptions),
-      schematic('dbs-error-configuration', nestedOptions),
+      schematic('module', _options),
+      schematic('info-component', _options),
+      schematic('service', nestedOptions),
+      schematic('error-configuration', nestedOptions),
     ]);
   };
 

@@ -7,7 +7,7 @@ import { getWorkspace } from '@schematics/angular/utility/config';
 import { buildDefaultPath, getProject } from '@schematics/angular/utility/project';
 import { parseName } from '@schematics/angular/utility/parse-name';
 
-export function dbsService(_options: any): Rule {
+export function service(_options: any): Rule {
 
   return (tree: Tree, _context: SchematicContext) => {
     const workspace = getWorkspace(tree);

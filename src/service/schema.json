@@ -1,27 +1,18 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "dbs-module",
-  "title": "dbs module",
+  "id": "service",
+  "title": "service",
   "type": "object",
-  "description": "Creates dbs module",
+  "description": "Creates service",
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the module.",
+      "description": "The name of the service.",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use for the module?"
-    },
-    "actionContext": {
-      "type": "string",
-      "description": "The actionContext of the module.",
-      "$default": {
-        "$source": "argv",
-        "index": 1
-      },
-      "x-prompt": "What actionContext would you like to use for the module?"
+      "x-prompt": "What name would you like to use for the service?"
     },
     "path": {
       "type": "string",
@@ -38,6 +29,6 @@
     }
   },
   "required": [
-    "name", "actionContext"
+    "name"
   ]
 }

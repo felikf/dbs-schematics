@@ -6,7 +6,7 @@ import { parseName } from '@schematics/angular/utility/parse-name';
 
 import { Schema } from './schema';
 
-export function dbsModule(_options: Schema): Rule {
+export function infoComponent(_options: Schema): Rule {
 
   return (tree: Tree, _context: SchematicContext) => {
     const workspace = getWorkspace(tree);

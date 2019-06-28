@@ -1,8 +1,0 @@
-:host {
-  .dbs-<%= dasherize(name) %> {
-    &__info-box {
-      margin-top: 10px;
-      padding-top: 16px;
-    }
-  }
-}

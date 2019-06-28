@@ -16,6 +16,7 @@ class FakeLoader implements TranslateLoader {
 describe('<%= classify(name) %>Component', () => {
   let component: <%= classify(name) %>Component;
   let fixture: ComponentFixture<<%= classify(name) %>Component>;
+  let service: <%= classify(name) %>Service;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -42,6 +43,7 @@ describe('<%= classify(name) %>Component', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(<%= classify(name) %>Component);
     component = fixture.componentInstance;
+    service = TestBed.get(<%= classify(name) %>Service);
   });
 
   it('should create', () => {

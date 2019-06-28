@@ -12,7 +12,7 @@ export const ERROR_MAPPING: ErrorConfig[] = [
   },
   {
     id: 'TODO',
-    name: 'TODO_NAME_ACTIONS ',
+    name: 'TODO_NAME_ACTIONS',
     severity: ErrorSeverity.warningError,
     url: '/products/{cgpId}/dashboard/actionlinks'
   },

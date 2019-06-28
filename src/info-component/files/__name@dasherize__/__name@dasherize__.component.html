@@ -1,10 +1,18 @@
+<!-- TODO change icon -->
 <dbs-page icon="account_balance_wallet" class="dbs-<%= dasherize(name) %>">
 
-  <!-- in case of [customTitle]="true" on dbs-page - otherwise DELETE this -->
+  <!-- TODO in case of [customTitle]="true" on dbs-page - otherwise DELETE this -->
   <div titleContent >
     <strong>Sample title</strong>
   </div>
 
+  <!-- TODO change wcmId -->
+  <div subHead fxLayout="row" fxLayoutAlign="space-between center">
+    <dbs-wcm-button wcmId="todoWcmId"></dbs-wcm-button>
+    <dbs-action-links-button [actionLinks]="actionLinks$ | async"></dbs-action-links-button>
+  </div>
+
+  <!-- TODO tabs -->
   <div tabs>
     <mat-tab-group (selectedIndexChange)="toggleHistory($event)" selectedIndex="1">
       <mat-tab label="{{ 'COMMON.BUTTONS.ACTUAL' | translate }}"></mat-tab>
@@ -13,7 +21,16 @@
   </div>
 
   <div body>
-    <mat-expansion-panel [expanded]="true" [disabled]="true" class="dbs-<%= dasherize(name) %>__info-box">
+    <mat-expansion-panel [expanded]="true" [disabled]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <!-- TODO title -->
+          {{ '<%= actionContext %>.TITLE' | translate }}
+        </mat-panel-title>
+        <mat-panel-description fxLayout="row-reverse">
+          <dbs-wcm-button wcmId="todoWcmId"></dbs-wcm-button>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
       <div fxLayout="column">
         <div fxLayout="row" fxLayoutGap="30px">
           <div fxFlex="45">
