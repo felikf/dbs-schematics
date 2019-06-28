@@ -1,0 +1,28 @@
+@import "table-mixins";
+
+:host {
+  .dbs-<%= dasherize(name) %> {
+    &__info-box {
+      margin-top: 10px;
+    }
+
+    &__table-cover {
+      display: block;
+      margin-top: 10px;
+    }
+
+    &__no-data {
+      padding: 15px;
+    }
+
+    @include clickable-row;
+    @include row-detail;
+    @include indentRowLeftRight;
+
+    /deep/ .mat-table {
+      .mat-cell-name {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}

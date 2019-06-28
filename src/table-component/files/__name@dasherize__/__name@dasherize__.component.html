@@ -1,0 +1,70 @@
+<!-- TODO change icon -->
+<dbs-page icon="account_balance_wallet" class="dbs-<%= dasherize(name) %>">
+
+  <!-- TODO in case of [customTitle]="true" on dbs-page - otherwise DELETE this -->
+  <div titleContent >
+    <strong>Sample title</strong>
+  </div>
+
+  <!-- TODO tabs -->
+  <div tabs>
+    <mat-tab-group (selectedIndexChange)="toggleHistory($event)" selectedIndex="1">
+      <mat-tab label="{{ 'COMMON.BUTTONS.ACTUAL' | translate }}"></mat-tab>
+      <mat-tab label="{{ 'COMMON.BUTTONS.HISTORY' | translate }}"></mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div body *ngIf="dataLoaded" class="dbs-<%= dasherize(name) %>__info-box">
+    <!-- TODO change wcmId -->
+    <div subHead fxLayout="row" fxLayoutAlign="space-between center">
+      <dbs-wcm-button wcmId="todoWcmId"></dbs-wcm-button>
+      <dbs-action-links-button [actionLinks]="actionLinks$ | async"></dbs-action-links-button>
+    </div>
+
+    <dbs-table-cover class="dbs-<%= dasherize(name) %>__table-cover" *ngIf="!isError">
+      <dbs-toggle-table-rows *ngIf="dataSource?.data?.length">
+        <mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="arrow">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row" class="dbs-card-reservations__table-row">
+              <mat-icon *ngIf="!row?.opened">keyboard_arrow_down</mat-icon>
+              <mat-icon *ngIf="row?.opened">keyboard_arrow_up</mat-icon>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>{{ '<%= actionContext %>.TABLE.NAME' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let row;">
+              {{ row.name '—' }}
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"
+                   class="dbs-table-clickable-row"
+                   [csngxCdkDetailRow]="row" [csngxCdkDetailRowTpl]="tpl" [csngxCdkDetailRowToggle]="row.opened"></mat-row>
+        </mat-table>
+      </dbs-toggle-table-rows>
+
+      <ng-template #tpl let-row>
+        <div class="dbs-table-clickable-row-detail" fxFill fxLayout="row" fxLayoutGap="15px">
+          <div fxFlex="50" fxLayout="column" fxLayoutGap="5px">
+            <dbs-data-section [items]="configureLeftSection(row)"></dbs-data-section>
+          </div>
+          <div fxFlex="50" fxLayout="column" fxLayoutGap="5px">
+            <dbs-data-section [items]="configureRightSection(row)"></dbs-data-section>
+          </div>
+        </div>
+      </ng-template>
+
+      <div *ngIf="!dataSource?.data?.length" fxLayout="row" fxLayoutAlign="center" class="dbs-<%= dasherize(name) %>__no-data">
+        {{ 'PENSION_INSURANCE_AUTHORIZED.NO_DATA' | translate }}
+      </div>
+
+    </dbs-table-cover>
+
+  </div>
+
+</dbs-page>
+

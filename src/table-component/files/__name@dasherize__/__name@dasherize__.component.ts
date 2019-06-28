@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MatTableDataSource } from '@angular/material';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { Operations } from '@core/model/operation';
@@ -13,11 +14,14 @@ import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.
 })
 export class <%= classify(name) %>Component implements OnInit, OnDestroy {
 
+  data: any; // TODO type
+  dataLoaded = false;
+  isError = false;
+  dataSource: MatTableDataSource<any>; // TODO type
+  displayedColumns = ['arrow', 'name'];
   actionLinks$: Observable<Operations>;
-  itemsLeft: DataSectionItem[];
-  itemsRight: DataSectionItem[];
 
-  constructor(private readonly service: <%= classify(name) %>Service) {}
+  constructor(private readonly service: <%= classify(name) %>Service) {} // TODO configure service with { swallowError: false }
 
   toggleHistory(tabIndex: number): void {
   }
@@ -25,27 +29,41 @@ export class <%= classify(name) %>Component implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.service.get<%= classify(name) %>()
       .pipe(untilDestroyed(this))
-      .subscribe(data => {
+      .subscribe(
+        data => {
           this.data = data;
+          this.dataLoaded = true;
           if (data) {
             this.actionLinks$ = this.service.getActionLinks(data.actions);
-            this.configureSections(data);
           }
+          if (data && data.array) {
+            this.dataSource = new MatTableDataSource<any>(data.array); // TODO type
+          }
+        },
+        () => {
+          this.dataLoaded = true;
+          this.isError = true;
         }
       );
   }
 
   ngOnDestroy(): void {}
 
-  private configureSections(data: any): void { // TODO type
-    if (data) {
-      this.itemsLeft = [
+  configureLeftSection(row: any): DataSectionItem[] { // TODO type
+    if (row) {
+      return [
         { label: 'Left', value: 'Left Data' }
       ];
+    }
+    return [];
+  }
 
-      this.itemsRight = [
+  configureRightSection(row: any): DataSectionItem[] { // TODO type
+    if (row) {
+      return [
         { label: 'Right', value: 'Right Data' }
       ];
     }
+    return [];
   }
 }

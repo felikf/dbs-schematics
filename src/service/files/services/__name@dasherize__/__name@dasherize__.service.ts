@@ -16,7 +16,7 @@ export class <%= classify(name) %>Service {
     private readonly backend: BackendService,
     private readonly store: Store<AppState>) {}
 
-  get<%= classify(name) %>(): Observable<any> {
+  get<%= classify(name) %>(): Observable<any> { // TODO type 2x
     return this.backend.getProductData<any>(cgpId => `products/${cgpId}/<%= classify(name) %>`);
   }
 

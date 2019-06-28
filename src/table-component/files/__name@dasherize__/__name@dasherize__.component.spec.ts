@@ -1,7 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
+import { MatTableModule } from '@angular/material';
+import { Observable, of, throwError } from 'rxjs';
 
 import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
 
@@ -21,6 +22,7 @@ describe('<%= classify(name) %>Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        MatTableModule,
         TranslateModule.forRoot({
           loader: { provide: TranslateLoader, useClass: FakeLoader }
         })
@@ -29,7 +31,7 @@ describe('<%= classify(name) %>Component', () => {
         {
           provide: <%= classify(name) %>Service,
           useValue: {
-            get<%= classify(name) %>: () => of({}), // TODO mock
+            get<%= classify(name) %>: () => of({}), // TODO
             getActionLinks: () => of([])
           }
         }
@@ -52,22 +54,30 @@ describe('<%= classify(name) %>Component', () => {
 
   it('should initialize data', () => {
     expect(component.data).toBeFalsy();
+    expect(component.dataSource).toBeFalsy();
     fixture.detectChanges();
     expect(component.data).toBeTruthy();
-    expect(component.data).toEqual({}); // TODO mock
+    expect(component.data).toEqual({}); // TODO
+    expect(component.dataSource).toBeTruthy();
+    expect(component.dataSource.data.length).toBe(1); // TODO
   });
 
-  it('should initialize sections', () => {
-    expect(component.itemsLeft).toBeFalsy();
-    expect(component.itemsRight).toBeFalsy();
+  it('should initialize data loaded flag', () => {
+    expect(component.dataLoaded).toBeFalsy();
     fixture.detectChanges();
-    expect(component.itemsLeft).toBeTruthy();
-    expect(component.itemsRight).toBeTruthy();
+    expect(component.dataLoaded).toBeTruthy();
   });
 
-  it('should initialize actions', () => {
-    expect(component.actionLinks$).toBeFalsy();
+  it('should initialize data loaded flag when error', () => {
+    spyOn(service, 'get<%= classify(name) %>').and.returnValue(throwError('Backend Error'));
+    expect(component.dataLoaded).toBeFalsy();
+    expect(component.isError).toBeFalsy();
     fixture.detectChanges();
-    expect(component.actionLinks$).toBeTruthy();
+    expect(component.dataLoaded).toBeTruthy();
+    expect(component.isError).toBeTruthy();
+  });
+
+  it('should initialize displayed columns', () => {
+    expect(component.displayedColumns.length).toBe(2);
   });
 });

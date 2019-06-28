@@ -11,6 +11,11 @@
       "factory": "./info-component/index#infoComponent",
       "schema": "./info-component/schema.json"
     },
+    "table-component": {
+      "description": "DBS table component schematic.",
+      "factory": "./table-component/index#tableComponent",
+      "schema": "./table-component/schema.json"
+    },
     "service": {
       "description": "DBS service schematic.",
       "factory": "./service/index#service",

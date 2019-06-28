@@ -30,23 +30,23 @@ That's it!
 npm run build:watch
 
 From angular sandbox:
-schematics ../dbs-schematics/src/collection.json:dbs-all test --debug=false
+schematics ../dbs-schematics/src/collection.json:all test --debug=false
 
 schematics --list-schematics @schematics/angular:
 schematics --list-schematics @angular/material:
 
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-service views/cards/card-tokens/services/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:service views/cards/card-tokens/services/CardTokens CARD_TOKENS --debug=false
 
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-service views/cards/card-tokens/services/CardTokens CARD_TOKENS --debug=false
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:service views/cards/card-tokens/services/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
 
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-module views/cards/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:error-configuration views/cards/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:module views/cards/CardTokens CARD_TOKENS --debug=false
 
-schematics ../../../github/schematics/dbs-schematics/src/collection.json:dbs-module views/cards/CardTokens CARD_TOKENS --debug=false
+schematics ../../../github/schematics/dbs-schematics/src/collection.json:module views/cards/CardTokens CARD_TOKENS --debug=false
  
-ng g ../dbs-schematics/src/collection.json:dbs-all benefits BENEFITS
+ng g ../dbs-schematics/src/collection.json:all benefits BENEFITS
 
 #### Build and pack
 npm run build
@@ -56,7 +56,7 @@ npm pack
 npm i --no-save /f/github/schematics/dbs-schematics/dbs-schematics-0.0.1.tgz
 
 ####Use
-ng g @dbs/schematics:dbs-all test TEST --path=src/app/views/_pension
+ng g @dbs/schematics:all test TEST --path=src/app/views/_pension
  
 ### Resources
 https://github.com/BottleRocketStudios/ng-momentum/blob/master/src/service/index.ts#L65
