@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 
-import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>/<%= dasherize(name) %>.service';
+import { <%= classify(name) %>Service } from './services/<%= dasherize(name) %>.service';
 
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
